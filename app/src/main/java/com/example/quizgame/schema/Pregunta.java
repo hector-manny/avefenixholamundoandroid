@@ -17,6 +17,8 @@ public class Pregunta {
     @ColumnInfo(name="valorPuntos")
     private int valorPuntos;
 
+
+
     public Pregunta(){
         idpregunta= UUID.randomUUID().toString();
     }
