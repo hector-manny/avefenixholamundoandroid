@@ -1,0 +1,121 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "fe1f8b0b6b5ec496044d0c32162d0242",
+    "entities": [
+      {
+        "tableName": "usuarios",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idusuario` TEXT NOT NULL, `nombre` TEXT, `puntaje` INTEGER NOT NULL, `cantidadRespuestas` INTEGER NOT NULL, PRIMARY KEY(`idusuario`))",
+        "fields": [
+          {
+            "fieldPath": "idusuario",
+            "columnName": "idusuario",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "puntaje",
+            "columnName": "puntaje",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cantidadRespuestas",
+            "columnName": "cantidadRespuestas",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idusuario"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "preguntas",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idpregunta` TEXT NOT NULL, `pregunta` TEXT, `valorPuntos` INTEGER NOT NULL, PRIMARY KEY(`idpregunta`))",
+        "fields": [
+          {
+            "fieldPath": "idpregunta",
+            "columnName": "idpregunta",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pregunta",
+            "columnName": "pregunta",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "valorPuntos",
+            "columnName": "valorPuntos",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idpregunta"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "respuestas",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idrespuesta` TEXT NOT NULL, `idpregunta` TEXT NOT NULL, `respuesta` TEXT, `estado` INTEGER NOT NULL, PRIMARY KEY(`idrespuesta`))",
+        "fields": [
+          {
+            "fieldPath": "idrespuesta",
+            "columnName": "idrespuesta",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idpregunta",
+            "columnName": "idpregunta",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "respuesta",
+            "columnName": "respuesta",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "estado",
+            "columnName": "estado",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idrespuesta"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"fe1f8b0b6b5ec496044d0c32162d0242\")"
+    ]
+  }
+}
