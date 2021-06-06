@@ -9,28 +9,61 @@ import android.widget.EditText;
 import android.widget.Button;
 import androidx.room.Room;
 
+import com.example.quizgame.database.QuizLab;
+import com.example.quizgame.database.database;
+import com.example.quizgame.schema.Pregunta;
+import com.example.quizgame.schema.Respuesta;
+
+import java.util.List;
+
 public class formulariopreguntas extends AppCompatActivity {
 
-    EditText etPregunta, etCantidadPun, etOp1, etOp2, etOp3, etOp4;
+    EditText etPregunta, etCantidadPun, etOp1, etOp2, etOp3, etOp4, est1, est2, est3, est4;
     Button btnGuardar;
-
+    private QuizLab QuizLab;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulariopreguntas);
         etPregunta = findViewById(R.id.txtpregunta);
         etCantidadPun = findViewById(R.id.txtcantpuntos);
+        est1 = findViewById(R.id.Est1);
+        est2 = findViewById(R.id.Est2);
+        est3 = findViewById(R.id.Est3);
+        est4 = findViewById(R.id.Est4);
         etOp1 = findViewById(R.id.txtop1);
         etOp2 = findViewById(R.id.txtop2);
         etOp3 = findViewById(R.id.txtop3);
         etOp4 = findViewById(R.id.txtop4);
         btnGuardar = findViewById(R.id.btnguardarpreg);
+        QuizLab=QuizLab.get(this);
+
+
 
         btnGuardar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                
-                Toast.makeText(getApplicationContext(),"Pregunta Guardada Correctamente",Toast.LENGTH_LONG).show();
+                int sum = Integer.parseInt(est1.getText().toString()) + Integer.parseInt(est2.getText().toString()) + Integer.parseInt(est3.getText().toString()) + Integer.parseInt(est4.getText().toString());
+                if(sum == 1){
+                    // insertar pregunta
+                    Pregunta pregunta = new Pregunta(etPregunta.getText().toString(),Integer.parseInt(etCantidadPun.getText().toString()));
+                    QuizLab.addPregunta(pregunta);
+                    //insertar opciones de respuesta
+                    List<Pregunta> preguntas=QuizLab.getPreguntas();
+                    Respuesta respuesta = new Respuesta(pregunta.getIdpregunta(),etOp1.getText().toString(),Integer.parseInt(est1.getText().toString()));
+                    QuizLab.addRespuesta(respuesta);
+                    respuesta = new Respuesta(pregunta.getIdpregunta(),etOp2.getText().toString(),Integer.parseInt(est2.getText().toString()));
+                    QuizLab.addRespuesta(respuesta);
+                    respuesta = new Respuesta(pregunta.getIdpregunta(),etOp3.getText().toString(),Integer.parseInt(est3.getText().toString()));
+                    QuizLab.addRespuesta(respuesta);
+                    respuesta = new Respuesta(pregunta.getIdpregunta(),etOp4.getText().toString(),Integer.parseInt(est4.getText().toString()));
+                    QuizLab.addRespuesta(respuesta);
+                    List<Respuesta> respuestas=QuizLab.getRespuestas();
+                    Toast.makeText(getApplicationContext(),"Pregunta Guardada Correctamente",Toast.LENGTH_LONG).show();
+                }else {
+                    Toast.makeText(getApplicationContext(),"Error solo puede haber un valor verdadero.",Toast.LENGTH_LONG).show();
+                }
+
             }
         });
     }
