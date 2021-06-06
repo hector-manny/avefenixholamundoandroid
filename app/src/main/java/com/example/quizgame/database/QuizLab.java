@@ -15,7 +15,7 @@ public class QuizLab {
     @SuppressLint("StaticFieldLeak")
     private static QuizLab staticQuizLab;
 
-    private QuizDao QuizLab;
+    private static QuizDao QuizLab;
 
     private QuizLab(Context context){
         Context appContext = context.getApplicationContext();
@@ -33,7 +33,7 @@ public class QuizLab {
 
     public List<Usuario> getUsuarios(){return QuizLab.getUsuarios();}
 
-    public List<Pregunta> getPreguntas(){return QuizLab.getPreguntas();}
+    public static List<Pregunta> getPreguntas(){return QuizLab.getPreguntas();}
 
     public List<Respuesta> getRespuestas(){return QuizLab.getRespuestas();}
 

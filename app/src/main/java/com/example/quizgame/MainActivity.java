@@ -1,12 +1,10 @@
 package com.example.quizgame;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.example.quizgame.database.QuizLab;
 import com.example.quizgame.schema.Pregunta;
 import com.example.quizgame.schema.Respuesta;

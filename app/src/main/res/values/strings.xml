@@ -4,4 +4,8 @@
     <string name="opcion2">Opción 2</string>
     <string name="opcion3">Opción 3</string>
     <string name="opcion4">Opción 4</string>
+
+    <string name="app_user_title">Ingresa tu nombre</string>
+    <string name="app_user_text">Usuario</string>
+    <string name="app_user_botton">Continuar</string>
 </resources>
