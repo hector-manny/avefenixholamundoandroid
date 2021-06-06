@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         opc4=findViewById(R.id.opcion4);
 
         QuizLab=QuizLab.get(this);
-
         pregunta=new Pregunta();
 
         /*pregunta.setPregunta("Cual es la flor nacional");

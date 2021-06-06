@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.speech.SpeechRecognizer;
 
+import androidx.room.Query;
 import androidx.room.Room;
 
 import com.example.quizgame.schema.Pregunta;
@@ -16,12 +17,11 @@ public class QuizLab {
     @SuppressLint("StaticFieldLeak")
     private static QuizLab staticQuizLab;
 
-    private QuizDao QuizLab;
+    private static QuizDao QuizLab;
 
     private QuizLab(Context context){
         Context appContext = context.getApplicationContext();
-        database database = Room.databaseBuilder(appContext, database.class, "quiz")
-                .allowMainThreadQueries().build();
+        database database = Room.databaseBuilder(appContext, database.class, "quiz").allowMainThreadQueries().build();
         QuizLab = database.getUsuarioDao();
     }
 
@@ -34,7 +34,13 @@ public class QuizLab {
 
     public List<Usuario> getUsuarios(){return QuizLab.getUsuarios();}
 
-    public List<Pregunta> getPreguntas(){return QuizLab.getPreguntas();}
+    public List<Usuario> getUsuariosAscPuntaje(){return QuizLab.getUsuariosAscPuntaje();}
+
+    public List<Usuario> getUsuariosDesPuntaje(){return QuizLab.getUsuariosDesPuntaje();}
+
+    public int getCount(String usuario){return QuizLab.getCount(usuario);}
+
+    public static List<Pregunta> getPreguntas(){return QuizLab.getPreguntas();}
 
     public List<Respuesta> getRespuestas(){return QuizLab.getRespuestas();}
 

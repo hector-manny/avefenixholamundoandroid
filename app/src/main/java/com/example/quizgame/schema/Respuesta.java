@@ -26,6 +26,13 @@ public class Respuesta {
         idrespuesta= UUID.randomUUID().toString();
     }
 
+    public Respuesta(@NonNull String idpregunta, String respuesta, int estado) {
+        idrespuesta= UUID.randomUUID().toString();
+        this.idpregunta = idpregunta;
+        this.respuesta = respuesta;
+        this.estado = estado;
+    }
+
     @NonNull
     public String getIdrespuesta(){
         return idrespuesta;

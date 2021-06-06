@@ -12,7 +12,7 @@ import java.util.UUID;
 public class Usuario {
     @PrimaryKey
     @NonNull
-    private String idusuario;
+    private  String idusuario;
     @ColumnInfo(name="nombre")
     private String nombre;
     @ColumnInfo(name="puntaje")
