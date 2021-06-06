@@ -5,20 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.view.View;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 import android.widget.EditText;
 import android.widget.Button;
-import androidx.room.Room;
 
 import com.example.quizgame.database.QuizLab;
-import com.example.quizgame.database.database;
 import com.example.quizgame.schema.Pregunta;
 import com.example.quizgame.schema.Respuesta;
 
 import java.util.List;
 
-public class formulariopreguntas extends AppCompatActivity {
+public class FormquestionActivity extends AppCompatActivity {
 
     EditText etPregunta, etCantidadPun, etOp1, etOp2, etOp3, etOp4, est1, est2, est3, est4;
     Button btnGuardar;
@@ -26,7 +23,7 @@ public class formulariopreguntas extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_formulariopreguntas);
+        setContentView(R.layout.activity_formquestion);
         etPregunta = findViewById(R.id.txtpregunta);
         etCantidadPun = findViewById(R.id.txtcantpuntos);
         est1 = findViewById(R.id.Est1);
@@ -102,7 +99,7 @@ public class formulariopreguntas extends AppCompatActivity {
     }
 
     public void BotonIrAtras(View vista){
-        Intent intent= new Intent (this, pantallabienvenida.class);
+        Intent intent= new Intent (this, WelcolmeActivity.class);
         startActivity(intent);
     }
 
