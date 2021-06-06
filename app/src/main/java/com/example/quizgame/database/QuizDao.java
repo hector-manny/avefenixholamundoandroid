@@ -68,4 +68,5 @@ public interface QuizDao {
 
     @Update
     void updatePregunta(Pregunta book);
+
 }

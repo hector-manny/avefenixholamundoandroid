@@ -11,7 +11,7 @@ import java.util.UUID;
 public class Pregunta {
     @PrimaryKey
     @NonNull
-    private String idpregunta;
+    private  String idpregunta;
     @ColumnInfo(name="pregunta")
     private String pregunta;
     @ColumnInfo(name="valorPuntos")
@@ -19,6 +19,12 @@ public class Pregunta {
 
     public Pregunta(){
         idpregunta= UUID.randomUUID().toString();
+    }
+
+    public Pregunta(String pregunta, int valorPuntos) {
+        idpregunta= UUID.randomUUID().toString();
+        this.pregunta = pregunta;
+        this.valorPuntos = valorPuntos;
     }
 
     @NonNull
