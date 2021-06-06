@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         // DataSet , API , WEB SERVICE , ETC. -> RETROFIT
         for (int i=0; i < usuarios.size(); i++){
-            listDatos.add(usuarios.get(i).getNombre() + "" + usuarios.get(i).getPuntaje());
+            listDatos.add(usuarios.get(i).getNombre() + "                                                          "  + usuarios.get(i).getPuntaje());
         }
 
         // Asociamos un adapter
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             17
             15
              */
-            listDatos.add(usuarios.get(i).getNombre() + "                                        "  + usuarios.get(i).getPuntaje());
+            listDatos.add(usuarios.get(i).getNombre() + "                                                          "  + usuarios.get(i).getPuntaje());
         }
         // Asociamos un adapter
         AdapterDatos adapter = new AdapterDatos(listDatos);
