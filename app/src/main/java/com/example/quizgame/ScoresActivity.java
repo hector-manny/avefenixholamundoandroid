@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.widget.RadioButton;
 import android.view.View;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ScoresActivity extends AppCompatActivity {
@@ -14,6 +13,7 @@ public class ScoresActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scores);
     }
+
 
     public void onRadioButtonClicked(View view) {
         // Is the button now checked?

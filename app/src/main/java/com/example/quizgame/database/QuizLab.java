@@ -33,6 +33,10 @@ public class QuizLab {
 
     public List<Usuario> getUsuarios(){return QuizLab.getUsuarios();}
 
+    public List<Usuario> getUsuariosAscPuntaje(){return QuizLab.getUsuariosAscPuntaje();}
+
+    public List<Usuario> getUsuariosDesPuntaje(){return QuizLab.getUsuariosDesPuntaje();}
+
     public int getCount(String usuario){return QuizLab.getCount(usuario);}
 
     public static List<Pregunta> getPreguntas(){return QuizLab.getPreguntas();}

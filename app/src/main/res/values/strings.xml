@@ -10,4 +10,6 @@
     <string name="app_user_botton">Continuar</string>
     <string name="mayor">Mayor puntaje</string>
     <string name="menor">Menor puntaje</string>
+
+    <string name="element_text">Element</string>
 </resources>

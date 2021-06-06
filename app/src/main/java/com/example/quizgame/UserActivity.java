@@ -17,6 +17,7 @@ public class UserActivity extends AppCompatActivity {
     EditText txtusuario;
     Button btncontinuar;
     Usuario usuario;
+    static int point = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +35,11 @@ public class UserActivity extends AppCompatActivity {
                 if(txtusuario.getText().toString().trim().isEmpty() || txtusuario.getText().toString().trim().length() == 0){
                     Toast.makeText(getApplicationContext(),"El campo usuario esta vacio",Toast.LENGTH_LONG).show();
                 }else{
+                    point = point + 10;
                     usuario = new Usuario();
                     usuario.setNombre(txtusuario.getText().toString().trim().toLowerCase());
                     usuario.setCantidadRespuestas(0);
-                    usuario.setPuntaje(0);
+                    usuario.setPuntaje(point);
                     int count = QuizLab.getCount(usuario.getNombre());
                     if(count == 0){
                         QuizLab.addUsuario(usuario);

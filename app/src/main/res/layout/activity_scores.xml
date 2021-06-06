@@ -61,7 +61,7 @@
     </RadioGroup>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/my_recycler_view"
+        android:id="@+id/recyclerview"
         android:scrollbars="vertical"
         android:textColor="@color/black"
         android:layout_width="match_parent"

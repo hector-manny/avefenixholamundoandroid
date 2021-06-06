@@ -5,4 +5,6 @@
     <dimen name="dimen_question_text_size">18sp</dimen>
     <dimen name="dimen_button_option_margin">15dp</dimen>
     <dimen name="dimen_question_margin">30dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="list_item_height">72dp</dimen>
 </resources>

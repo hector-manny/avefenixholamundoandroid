@@ -18,6 +18,12 @@ public interface QuizDao {
     @Query("select * from usuarios")
     List<Usuario> getUsuarios();
 
+    @Query("select * from usuarios ORDER BY puntaje ASC")
+    List<Usuario> getUsuariosAscPuntaje();
+
+    @Query("select * from usuarios ORDER BY puntaje DESC")
+    List<Usuario> getUsuariosDesPuntaje();
+
     @Query("select * from usuarios where idusuario like:uuid")
     Usuario getUsuario(String uuid);
 
