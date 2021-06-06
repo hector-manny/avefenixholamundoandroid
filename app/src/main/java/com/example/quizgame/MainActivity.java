@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         pregunta.setValorPuntos(10);
         QuizLab.addPregunta(pregunta);*/
 
-
         List<Pregunta> preguntas=QuizLab.getPreguntas();
         if (preguntas.size()>0){
             pregunta= preguntas.get(0);

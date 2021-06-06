@@ -3,6 +3,7 @@ package com.example.quizgame.database;
 import android.annotation.SuppressLint;
 import android.content.Context;
 
+import androidx.room.Query;
 import androidx.room.Room;
 
 import com.example.quizgame.schema.Pregunta;
@@ -19,8 +20,7 @@ public class QuizLab {
 
     private QuizLab(Context context){
         Context appContext = context.getApplicationContext();
-        database database = Room.databaseBuilder(appContext, database.class, "quiz")
-                .allowMainThreadQueries().build();
+        database database = Room.databaseBuilder(appContext, database.class, "quiz").allowMainThreadQueries().build();
         QuizLab = database.getUsuarioDao();
     }
 
@@ -32,6 +32,8 @@ public class QuizLab {
     }
 
     public List<Usuario> getUsuarios(){return QuizLab.getUsuarios();}
+
+    public int getCount(String usuario){return QuizLab.getCount(usuario);}
 
     public static List<Pregunta> getPreguntas(){return QuizLab.getPreguntas();}
 

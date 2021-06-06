@@ -21,6 +21,9 @@ public interface QuizDao {
     @Query("select * from usuarios where idusuario like:uuid")
     Usuario getUsuario(String uuid);
 
+    @Query("SELECT COUNT(idusuario) FROM usuarios WHERE nombre like:usuario")
+    int getCount(String usuario);
+
     @Query("select * from respuestas")
     List<Respuesta> getRespuestas();
 
