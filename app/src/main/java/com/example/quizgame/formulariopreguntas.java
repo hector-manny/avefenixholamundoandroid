@@ -62,7 +62,7 @@ public class formulariopreguntas extends AppCompatActivity {
                         || est2.getText().toString().trim().isEmpty() || est2.getText().toString().trim().length() == 0
                         || est3.getText().toString().trim().isEmpty() || est3.getText().toString().trim().length() == 0
                         || est4.getText().toString().trim().isEmpty() || est4.getText().toString().trim().length() == 0) {
-                    Toast.makeText(getApplicationContext(), "El campo verdadero ó falso esta vacio", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Un campo verdadero ó falso esta vacio", Toast.LENGTH_LONG).show();
                 }
                 else{
                     int sum = Integer.parseInt(est1.getText().toString()) + Integer.parseInt(est2.getText().toString()) + Integer.parseInt(est3.getText().toString()) + Integer.parseInt(est4.getText().toString());
