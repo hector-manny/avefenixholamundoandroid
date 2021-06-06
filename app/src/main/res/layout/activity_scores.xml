@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".ScoresActivity">
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,15 +37,16 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-       >
+        >
 
         <RadioButton
             android:id="@+id/radiomayor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="100dp"
+            android:layout_marginRight="60dp"
             android:checked="true"
             android:onClick="onRadioButtonClicked"
+            android:textSize="20sp"
             android:text="@string/mayor"
             android:textColor="@color/black" />
 
@@ -57,14 +57,14 @@
             android:checked="false"
             android:onClick="onRadioButtonClicked"
             android:text="@string/menor"
+            android:textSize="20sp"
             android:textColor="@color/black" />
     </RadioGroup>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview"
-        android:scrollbars="vertical"
-        android:textColor="@color/black"
+        android:id="@+id/recyclerId"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        />
 
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

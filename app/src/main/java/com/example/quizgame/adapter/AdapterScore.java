@@ -10,14 +10,14 @@ import com.example.quizgame.R;
 
 import java.util.ArrayList;
 
-public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDatos> {
+public class AdapterScore extends RecyclerView.Adapter<AdapterScore.ViewHolderDatos> {
 
     //En este caso, la fuente de datos que espera recibir el adaptador
     // es solo un arreglo de objetos String.
    // Pero esta fuente de datos puede ser más compleja, según se requiera.
     ArrayList<String> listDatos;
 
-    public AdapterDatos(ArrayList<String> listDato) {
+    public AdapterScore(ArrayList<String> listDato) {
         this.listDatos = listDato;
     }
 

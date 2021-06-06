@@ -8,7 +8,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.quizgame.database.QuizLab;
-import com.example.quizgame.schema.Pregunta;
 import com.example.quizgame.schema.Usuario;
 import java.util.List;
 
