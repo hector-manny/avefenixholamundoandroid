@@ -2,6 +2,7 @@ package com.example.quizgame.database;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.speech.SpeechRecognizer;
 
 import androidx.room.Query;
 import androidx.room.Room;
@@ -66,5 +67,7 @@ public class QuizLab {
     public void deletePregunta(Pregunta pregunta){QuizLab.deletePregunta(pregunta);}
 
     public void deleteRespuesta(Respuesta respuesta){QuizLab.deleteRespuesta(respuesta);}
+
+    public List<Respuesta> getOpciones(String idrandom){return QuizLab.getOpciones(idrandom);}
 
 }

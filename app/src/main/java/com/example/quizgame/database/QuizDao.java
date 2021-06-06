@@ -42,6 +42,9 @@ public interface QuizDao {
     @Query("select * from preguntas where idpregunta like:uuid")
     Pregunta getPregunta(String uuid);
 
+    @Query("select * from respuestas where idpregunta like:uuid")
+    List<Respuesta> getOpciones(String uuid);
+
     @Insert
     void addUsuario(Usuario book);
 

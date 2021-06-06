@@ -3,6 +3,7 @@ package com.example.quizgame.schema;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 import java.util.UUID;
@@ -13,6 +14,7 @@ public class Respuesta {
     @NonNull
     private String idrespuesta;
     @ColumnInfo(name="idpregunta")
+    /*@ForeignKey(Pre)*/
     @NonNull
     private String idpregunta;
     @ColumnInfo(name="respuesta")
