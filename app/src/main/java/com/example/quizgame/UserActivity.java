@@ -1,6 +1,8 @@
 package com.example.quizgame;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +19,7 @@ public class UserActivity extends AppCompatActivity {
     Button btncontinuar;
     Usuario usuario;
     static int point = 0;
+    public static String idusuario,nombre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,16 +42,26 @@ public class UserActivity extends AppCompatActivity {
                     usuario.setNombre(txtusuario.getText().toString().trim().toLowerCase());
                     usuario.setCantidadRespuestas(0);
                     usuario.setPuntaje(point);
+
                     int count = QuizLab.getCount(usuario.getNombre());
                     if(count == 0){
                         QuizLab.addUsuario(usuario);
                         List<Usuario> usuarios=QuizLab.getUsuarios();
                         Toast.makeText(getApplicationContext(),"Usuario Guardado Correctamente",Toast.LENGTH_LONG).show();
                     }else {
-                        Toast.makeText(getApplicationContext(),"Error el usuario ya existe : " + usuario.getNombre(),Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Bienvenido Nuevamente : " + usuario.getNombre(),Toast.LENGTH_LONG).show();
                     }
+                    idusuario= usuario.getIdusuario();
+                    nombre= usuario.getNombre();
+                    BotonContinuar();
                 }
+
             }
         });
+    }
+
+    public void BotonContinuar (){
+        Intent intent= new Intent (this, WelcolmeActivity.class);
+        startActivity(intent);
     }
 }

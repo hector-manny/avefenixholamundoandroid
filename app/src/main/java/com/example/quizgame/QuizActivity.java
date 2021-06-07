@@ -2,16 +2,19 @@ package com.example.quizgame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.quizgame.database.QuizLab;
 import com.example.quizgame.schema.Pregunta;
 import com.example.quizgame.schema.Respuesta;
 import com.example.quizgame.schema.Usuario;
+import com.example.quizgame.UserActivity;
 
 import java.util.List;
 
@@ -19,7 +22,7 @@ public class QuizActivity extends AppCompatActivity {
     Button opc1,opc2,opc3,opc4;
     TextView temporizador,puntaje,enunciado;
     Contador counter;
-    int seconds=60,minutes=1,ramdonselect=0,score=0,puntos=0,contador=0;
+    int seconds=60,minutes=1,ramdonselect=0,score=0,puntos=0, nQuestions =0;
     String idrandom="";
 
     private QuizLab QuizLab;
@@ -27,7 +30,6 @@ public class QuizActivity extends AppCompatActivity {
     private Usuario usuario;
     private Pregunta pregunta;
     private Respuesta respuesta;
-
 
 
     @Override
@@ -45,6 +47,8 @@ public class QuizActivity extends AppCompatActivity {
         opc4=findViewById(R.id.opcion4);
 
         QuizLab=QuizLab.get(this);
+
+
 
         /*pregunta=new Pregunta();
         pregunta.setPregunta("Cual es la flor nacional");
@@ -193,7 +197,7 @@ public class QuizActivity extends AppCompatActivity {
             opc3.setText(opciones.get(2).getRespuesta());
             opc4.setText(opciones.get(3).getRespuesta());
 
-            contador=1;
+            nQuestions =1;
 
             opc1.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -218,7 +222,7 @@ public class QuizActivity extends AppCompatActivity {
                     opc3.setText(opciones.get(2).getRespuesta());
                     opc4.setText(opciones.get(3).getRespuesta());
 
-                    contador ++;
+                    nQuestions++;
                 }
             });
 
@@ -245,7 +249,7 @@ public class QuizActivity extends AppCompatActivity {
                     opc3.setText(opciones.get(2).getRespuesta());
                     opc4.setText(opciones.get(3).getRespuesta());
 
-                    contador ++;
+                    nQuestions++;
                 }
             });
 
@@ -272,7 +276,7 @@ public class QuizActivity extends AppCompatActivity {
                     opc3.setText(opciones.get(2).getRespuesta());
                     opc4.setText(opciones.get(3).getRespuesta());
 
-                    contador ++;
+                    nQuestions++;
                 }
             });
 
@@ -299,13 +303,9 @@ public class QuizActivity extends AppCompatActivity {
                     opc3.setText(opciones.get(2).getRespuesta());
                     opc4.setText(opciones.get(3).getRespuesta());
 
-                    contador ++;
+                    nQuestions++;
                 }
             });
-
-
-
-
 
         }
         if(preguntas.size()<=0){
@@ -317,7 +317,8 @@ public class QuizActivity extends AppCompatActivity {
 
         counter.start();
 
-    }
+    }//fin onCreate
+
     public int CheckAnswer(int estado){
         int puntos=0;
 
@@ -329,6 +330,13 @@ public class QuizActivity extends AppCompatActivity {
         }
         return puntos;
     }//Función para validar respuesta
+
+
+    public void BotonTerminar(){
+        Toast.makeText(getApplicationContext(),"Boton Terminar : " + usuario.getNombre(),Toast.LENGTH_LONG).show();
+        Intent intent= new Intent (this, EndgameActivity.class);
+        startActivity(intent);
+    }
 
     public void end(int contador){
         temporizador.setText("Se acabó el tiempo\nPudiste responder "+contador+" preguntas.");
@@ -352,7 +360,17 @@ public class QuizActivity extends AppCompatActivity {
         seconds--;
     }
 
+    public void guardarPuntaje(){
+        Usuario usario = new Usuario();
+        usuario.setIdusuario(UserActivity.idusuario);
+        usuario.setNombre(UserActivity.nombre);
+        usuario.setCantidadRespuestas(nQuestions);
+        usuario.setPuntaje(score);
+        QuizLab.updateUsuario(usuario);
+    }
+
     public class Contador extends CountDownTimer {
+
 
         public Contador(long millisInFuture, long countDownInterval) {
             super(millisInFuture, countDownInterval);
@@ -360,7 +378,8 @@ public class QuizActivity extends AppCompatActivity {
 
         @Override
         public void onFinish() {
-            end(contador);
+            end(nQuestions);
+            guardarPuntaje();
         }
 
         @Override
